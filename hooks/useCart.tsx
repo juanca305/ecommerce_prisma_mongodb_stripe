@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 
 type CartContextType = {
     cartTotalQty: number;
+    cartTotalAmount: number;
     cartProducts: CartProductType[] | null;
     handleAddProductToCart: (product: CartProductType) => void;
     handleRemoveProductFromCart: (product: CartProductType) => void;
@@ -21,6 +22,10 @@ interface Props {
 export const CartContextProvider = (props:Props) => {
     const [cartTotalQty, setCartTotalQty] = useState(0);
     const [cartProducts, setCartProducts] = useState<CartProductType[] | null>(null);
+    const [cartTotalAmount, setCartTotalAmount] = useState(0);
+
+    console.log('qty', cartTotalQty);
+    console.log('total', cartTotalAmount);
 
     useEffect(() => {
         const cartItems: any = localStorage.getItem('juanca_shop_cartItems');
@@ -28,6 +33,29 @@ export const CartContextProvider = (props:Props) => {
 
         setCartProducts(cProduct);
     },[]);
+
+
+    //***Each time page load and cartProducts changes***/
+    useEffect(() => {
+        const getTotals = () => {
+
+            if (cartProducts) {
+                const {total, qty } = cartProducts?.reduce((acc, item) => {
+                const itemsTotal = item.price * item.quantity;
+                acc.total += itemsTotal;
+                acc.qty += item.quantity;
+
+                return acc;
+            },{
+                total: 0,
+                qty: 0
+            });
+            setCartTotalQty(qty);
+            setCartTotalAmount(total);
+            }   
+        }
+        getTotals();
+    }, [cartProducts]);
 
     const handleAddProductToCart = useCallback((product: CartProductType) => {
         setCartProducts((prev) => {
@@ -51,7 +79,7 @@ export const CartContextProvider = (props:Props) => {
                 return item.id !== product.id
             })
             setCartProducts(filterProducts);
-            toast.success('Product removed from cart');   
+            toast.success('Product removed');   
             localStorage.setItem('juanca_shop_cartItems', JSON.stringify(filterProducts));
         }
         
@@ -61,7 +89,7 @@ export const CartContextProvider = (props:Props) => {
         const itemsInStock = 9;
         let updatedCart;
         if(product.quantity >= itemsInStock){
-            return toast.error("Ooopppss!!!...Maximum reached!!!.");
+            return toast.error("Ooops!!!...Maximum reached.");
         }
 
         if (cartProducts){
@@ -80,7 +108,7 @@ export const CartContextProvider = (props:Props) => {
         //const itemsInStock = 9;
         let updatedCart;
         if(product.quantity === 1){
-            return toast.error("Ooopppss!!!...Minimum reached!!!.");
+            return toast.error("Ooops!!!...Minimum reached.");
         }
 
         if (cartProducts){
@@ -104,6 +132,7 @@ export const CartContextProvider = (props:Props) => {
     
     const value = {
         cartTotalQty,
+        cartTotalAmount,
         cartProducts,
         handleAddProductToCart,
         handleRemoveProductFromCart,

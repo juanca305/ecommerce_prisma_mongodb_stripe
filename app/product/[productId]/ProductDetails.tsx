@@ -49,8 +49,8 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({ product }) => {
     });
 
     const router = useRouter()
-  console.log('one product',cartProduct);
-  console.log('an array of products',cartProducts);
+  //console.log('one product',cartProduct);
+  //console.log('an array of products',cartProducts);
 
   useEffect(() => {
     setIsProductInCart(false);
