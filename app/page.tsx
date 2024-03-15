@@ -17,7 +17,9 @@ export default async function Home({searchParams}: HomeProps) {
   console.log('Products from searchterm', products);
 
   if(products.length === 0){
-    return <NullData title = 'Oops! No products found. Click "All" to clear filters'/>
+    return <div className="mx-4">
+      <NullData title = 'Oops! No products found. Click "All" to clear filters'/>
+      </div>
   }
 
   //Fisher-Yates shuffle algorithm

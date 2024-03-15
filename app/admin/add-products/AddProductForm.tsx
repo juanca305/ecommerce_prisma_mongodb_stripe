@@ -189,7 +189,10 @@ const AddProductForm = () => {
  
     return (
     <>
-        <Heading title='Add a Product' center/>
+    <div className='text-lg md:text-2xl'>
+         <Heading  title='Add a Product' center/>
+    </div>
+       
         <Input 
             id='name'
             label='Name'

@@ -2,6 +2,9 @@ import { CartProductType } from "@/app/product/[productId]/ProductDetails";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { toast } from 'react-hot-toast';
 
+//import { Order, User } from "@prisma/client";
+//import { getCurrentUser } from "@/actions/getCurrentUser";
+
 type CartContextType = {
     cartTotalQty: number;
     cartTotalAmount: number;
@@ -64,7 +67,11 @@ export const CartContextProvider = (props:Props) => {
         getTotals();
     }, [cartProducts]);
 
+    
+
     const handleAddProductToCart = useCallback((product: CartProductType) => {
+        /*****/
+        //const user = getCurrentUser();
         setCartProducts((prev) => {
             let updatedCart;
             if(prev) {
@@ -73,7 +80,8 @@ export const CartContextProvider = (props:Props) => {
                 updatedCart = [product]
             }
             console.log('updated cart', updatedCart);
-            localStorage.setItem('juanca_shop_cartItems', JSON.stringify(updatedCart)); 
+            localStorage.setItem('juanca_shop_cartItems', JSON.stringify(updatedCart));
+            //localStorage.setItem(`juanca_shop_cartItems_${user.}`, JSON.stringify(updatedCart)); 
             return updatedCart;
         })
         toast.success('Product added to cart');   

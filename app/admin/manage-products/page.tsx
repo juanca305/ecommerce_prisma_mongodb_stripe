@@ -14,7 +14,9 @@ const ManageProducts = async() => {
   }
 
   return (
-    <div><ManageProductsClient products = {products}/></div>
+    <div className='flex'>
+      <ManageProductsClient products = {products}/>
+    </div>
   )
 }
 

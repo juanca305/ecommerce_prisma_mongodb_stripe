@@ -23,37 +23,41 @@ const MyCheckoutClient = () => {
   console.log('paymentIntent', paymentIntent);
   console.log('clientSecret', clientSecret);
 
+
   useEffect(() => {
-   //create a paymentIntent as soon as the page loads
-   if(cartProducts) {
+    //create a paymentintent as soon as the page loads
+    if (cartProducts) {
       setLoading(true);
       setError(false);
 
-      fetch('/api/create-payment-intent', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+      fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           items: cartProducts,
-          payment_intent_id: paymentIntent
-        })
-      }).then((res) => {
-        setLoading(false);
-        if (res.status === 401) {
-          return router.push('/login')
-        }
+          payment_intent_id: paymentIntent,
+        }),
+      })
+        .then((res) => {
+          setLoading(false);
+          if (res.status === 401) {
+            return router.push("/login");
+          }
 
-        return res.json()
-      }).then((data) => {
-        console.log(data);
-        setClientSecret(data.paymentIntent.client_secret);
-        handleSetPaymentIntent(data.paymentIntent.id)
-      }).catch((error) => {
-        setError(true);
-        console.log('ERROR', error);
-        toast.error('Something went wrong')
-      }) 
-   }
-  }, [cartProducts, paymentIntent])
+          return res.json();
+        })
+        .then((data) => {
+          setClientSecret(data.paymentIntent.client_secret);
+          handleSetPaymentIntent(data.paymentIntent.id);
+        })
+        .catch((error) => {
+          setError(true);
+          console.log("Error", error);
+          toast.error("Something went wrong");
+        });
+    }
+    console.log('CREATE PAYMENT INTENT')
+  }, []);
   
   const options: StripeElementsOptions = {
     clientSecret,
@@ -62,12 +66,14 @@ const MyCheckoutClient = () => {
       labels: 'floating'
     }
   }
-
-  const handleSetPaymentSuccess = useCallback(
-    (value: boolean) => {
-      setPaymentSuccess(value)
-    },
-    []);
+  
+    const handleSetPaymentSuccess = useCallback(
+          (value: boolean) => {
+            setPaymentSuccess(value)
+          },
+          []);
+  
+    
   
   return (
     <div className=' w-full'>

@@ -1,6 +1,7 @@
 
 //I am changing the image links from firebase to amazon, firebase has issues with these direct links. Please remember to add the amazon link(that will show up at the error) instead of firebase at the cofig for it to work out.
-
+//"https://firebasestorage.googleapis.com/v0/b/juanca-shop.appspot.com/o/…"
+//Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ratione eum voluptate maxime similique maiores debitis eveniet voluptatibus labore laboriosam!
 export const products = [
   {
     id: "64a654593e91b8e73a351e9b",

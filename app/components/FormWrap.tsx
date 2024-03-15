@@ -9,8 +9,9 @@ const FormWrap = ({ children }: { children: React.ReactNode }) => {
         flex 
         justify-center 
         items-center 
-        pb-12 
-        pt-24
+        pb-12
+        pt-4 
+        md:pt-4
       '>
         <div 
           className=' 

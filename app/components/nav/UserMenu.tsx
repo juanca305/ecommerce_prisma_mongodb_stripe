@@ -22,6 +22,14 @@ console.log("UserMenu-currentUser", currentUser);
         setIsOpen(prev => !prev)
     }, [])
 
+  function setCartProducts(arg0: null) {
+    throw new Error('Function not implemented.');
+  }
+
+  function setCartTotalQty(arg0: number) {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <>
         <div className=' relative z-30'>
@@ -74,6 +82,7 @@ console.log("UserMenu-currentUser", currentUser);
                             <MenuItem onClick={() => {
                                 toggleOpen();
                                 signOut();
+                                
                             }}>
                               Logout
                             </MenuItem>

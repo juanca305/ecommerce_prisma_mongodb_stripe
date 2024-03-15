@@ -13,9 +13,9 @@ const AdminNav = () => {
     return (
     <div className=' w-full shadow-sm top-20 border-b-[1px] pt-4'>
         <Container>
-            <div className=' flex flex-row items-center justify-between 
+            <div className='flex flex-row md:items-center justify-between 
             md:justify-center gap-8 md:gap-12 overflow-x-auto flex-nowrap'>
-                <Link href='/admin'>
+                <Link href='/admin' className=' md:hover:border-black bg-slate-50 hover:bg-slate-100 md:bg-white'>
                     <AdminNavItem 
                         label='Summary' 
                         icon={MdDashboard} 
@@ -29,25 +29,22 @@ const AdminNav = () => {
                         selected={pathname === '/admin/add-products'}
                     />
                 </Link>
-                <Link href='/admin/manage-products'>
+                <Link href='/admin/manage-products' className='hidden md:block'>
                     <AdminNavItem 
                         label='ManageProducts' 
                         icon={MdDns} 
                         selected={pathname === '/admin/manage-products'}
                     />
                 </Link>
-                <Link href='/admin/manage-orders'>
+                <Link href='/admin/manage-orders' className='hidden md:block'>
                     <AdminNavItem 
                         label='ManageOrders' 
                         icon={MdFormatListBulleted} 
                         selected={pathname === '/admin/manage-orders'}
                     />
-                </Link>
-
-               
+                </Link>  
             </div>
         </Container>
-
     </div>
   )
 }
