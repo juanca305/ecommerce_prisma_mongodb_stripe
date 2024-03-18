@@ -12,6 +12,9 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import moment from "moment";
+import Orders from "./page";
+import { BsBox } from "react-icons/bs";
+import { yellow } from "@mui/material/colors";
 
 
 //import React from 'react'
@@ -82,7 +85,6 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
          },
         },
 
-
         //***************************** */
         { field: 'deliveryStatus', headerName: 'Delivery Status', width: 130, renderCell: (params) => {
             
@@ -113,7 +115,7 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
         {field: 'date', headerName: 'Date', width: 110},
         { field: 'action', headerName: 'Actions', width: 200, renderCell: (params) => {
             return(
-                <div className=" flex justify-between gap-2 w-full">
+                <div className="flex justify-between gap-2 w-full">
                     <ActionBtn icon={MdRemoveRedEye} onClick={() => {
                         router.push(`/order/${params.row.id}`)
                     }}/>
@@ -122,13 +124,42 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
         }},
     ];
 
-   
+    
   return (
+   
     <div className=" max-w-[1150px] m-auto text-xl ">
         <div className=" mb-4 mt-8">
             <Heading title="Orders" center/>
         </div>
-        <div style={{ height: 600, width: '100%'}}>
+
+        <div>
+            {orders && orders.map((order) => {
+                return(
+                    <div className="text-slate-700 border-slate-300 bg-slate-100 m-2 border rounded flex flex-row p-2 mx-4 justify-between md:hidden text-xs">
+                
+                        <div className="flex flex-row gap-x-2">
+                            <BsBox size={24} color='#ebab34'/>
+                            <div className="flex flex-col gap-2">
+                              <p>{order.id}</p>
+                              {order.createDate.toDateString()}
+                              
+                            </div>    
+                        </div>
+
+                        <div className="flex flex-col">   
+                            <div className={`${order.status === 'pending' ? 'text-yellow-400': 'text-lime-600'}`}>
+                                <p>{order.status}</p>
+                            </div>
+                            <p>{order.currency}: <span className="text-lime-600 font-bold">$</span><span className="font-bold text-black">{order.amount/100}</span></p>
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
+
+        
+
+        <div className="hidden md:block" style={{ height: 600, width: '100%'}}>
             <DataGrid
                 rows={rows}
                 columns={columns}

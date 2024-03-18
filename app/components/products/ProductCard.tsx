@@ -44,7 +44,7 @@ const ProductCard: React.FC<ProductCardProps> = ({data}) => {
                  alt={data.name}
                 />
             </div>
-            <div className=" mt-4">
+            <div className="mt-4 w-full overflow-hidden whitespace-nowrap text-ellipsis">
               {truncateText(data.name)}
             </div>
             <div className="w-auto">

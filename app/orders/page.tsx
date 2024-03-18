@@ -20,7 +20,9 @@ const Orders = async() => {
   }
 
   return (
-    <div><OrdersClient orders = {orders}/></div>
+    <div>
+      <OrdersClient orders = {orders}/>
+    </div>
   )
 }
 

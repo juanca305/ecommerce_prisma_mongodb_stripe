@@ -32,7 +32,8 @@ console.log("UserMenu-currentUser", currentUser);
 
   return (
     <>
-        <div className=' relative z-30'>
+        <div className=' relative z-30 flex items-center gap-2 text-sm'>
+            <div className={`${currentUser ? 'block' : 'hidden'}`}>Hello, {currentUser?.name?.split(' ', 1)}</div>
             <div onClick={toggleOpen} className='
               p-2 border-[1px]
               border-slate-400 
@@ -46,9 +47,11 @@ console.log("UserMenu-currentUser", currentUser);
               transition
              text-slate-700
               '>
+                
                 <Avatar src={currentUser?.image}/>
                 <AiFillCaretDown />
             </div>
+            
                { isOpen && (
                   <div className='
                    absolute 

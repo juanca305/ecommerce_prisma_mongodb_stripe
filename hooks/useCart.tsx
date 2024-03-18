@@ -1,9 +1,10 @@
+
 import { CartProductType } from "@/app/product/[productId]/ProductDetails";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { toast } from 'react-hot-toast';
 
-//import { Order, User } from "@prisma/client";
-//import { getCurrentUser } from "@/actions/getCurrentUser";
+import { Order, User } from "@prisma/client";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 
 type CartContextType = {
     cartTotalQty: number;
@@ -25,6 +26,7 @@ interface Props {
     [propname: string] : any
 }
 
+
 export const CartContextProvider = (props:Props) => {
     const [cartTotalQty, setCartTotalQty] = useState(0);
     const [cartProducts, setCartProducts] = useState<CartProductType[] | null>(null);
@@ -33,6 +35,8 @@ export const CartContextProvider = (props:Props) => {
 
     // console.log('qty', cartTotalQty);
     // console.log('total', cartTotalAmount);
+
+    
 
     useEffect(() => {
         const cartItems: any = localStorage.getItem('juanca_shop_cartItems');
@@ -67,11 +71,18 @@ export const CartContextProvider = (props:Props) => {
         getTotals();
     }, [cartProducts]);
 
-    
+   
 
     const handleAddProductToCart = useCallback((product: CartProductType) => {
-        /*****/
-        //const user = getCurrentUser();
+
+        // const user = async () => {
+        //     const currentUser = await getCurrentUser();
+        //     if (currentUser !== null) {
+        //         return currentUser  
+        // } 
+        // return null
+        // }
+
         setCartProducts((prev) => {
             let updatedCart;
             if(prev) {
@@ -80,8 +91,9 @@ export const CartContextProvider = (props:Props) => {
                 updatedCart = [product]
             }
             console.log('updated cart', updatedCart);
+           
             localStorage.setItem('juanca_shop_cartItems', JSON.stringify(updatedCart));
-            //localStorage.setItem(`juanca_shop_cartItems_${user.}`, JSON.stringify(updatedCart)); 
+        
             return updatedCart;
         })
         toast.success('Product added to cart');   
