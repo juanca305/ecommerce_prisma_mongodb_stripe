@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic"
+
 
 import Stripe from "stripe";
 import prisma from "@/lib/prismadb";
