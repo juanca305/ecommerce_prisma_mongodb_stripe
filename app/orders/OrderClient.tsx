@@ -135,7 +135,7 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
         <div>
             {orders && orders.map((order) => {
                 return(
-                    <div className="text-slate-700 border-slate-300 bg-slate-100 m-2 border rounded flex flex-row p-2 mx-4 justify-between md:hidden text-xs">
+                    <div key={order.id} className="text-slate-700 border-slate-300 bg-slate-100 m-2 border rounded flex flex-row p-2 mx-4 justify-between md:hidden text-xs">
                 
                         <div className="flex flex-row gap-x-2">
                             <BsBox size={24} color='#ebab34'/>
