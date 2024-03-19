@@ -22,7 +22,7 @@ const Categories = () => {
                 {categories.map((item) => (
                     <div className='border md:border-none md:hover:border-black bg-slate-50 hover:bg-slate-100 md:bg-white flex m-1 p-[0.25px] rounded-md overflow-x-auto md:text-sm'>                      
                       <Category 
-                        key={item.label} 
+                        key={item.label}
                         label={item.label}
                         icon={item.icon}
                         selected={category === item.label || (category === null && item.label === 'All')}
