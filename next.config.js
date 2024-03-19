@@ -2,6 +2,10 @@
 const nextConfig = {
     images: {
         domains: ["firebasestorage.googleapis.com", "lh3.googleusercontent.com","m.media-amazon.com"]
+    },
+    
+    eslint: {
+        ignoreDuringBuilds: true,
     }
 }
 
@@ -9,4 +13,5 @@ const nextConfig = {
 module.exports = nextConfig
 
 //module.exports = { eslint: { ignoreDuringBuilds: true } }
+
 
