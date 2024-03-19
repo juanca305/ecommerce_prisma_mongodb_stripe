@@ -1,6 +1,7 @@
 
-//export const revalidate = 0;
+
 export const dynamic = "force-dinamic";
+export const revalidate = 0;
 
 import Container from "./components/Container";
 import HomeBanner from "./components/HomeBanner";
