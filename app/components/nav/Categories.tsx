@@ -20,9 +20,9 @@ const Categories = () => {
             {/* <div className=' pt-4 flex md:flex-row items-center justify-between overflow-x-auto text-xs'> */}
             <div className='items-start pt-4 grid grid-cols-3 md:flex md:text-sm flex-row md:items-center justify-between overflow-x-auto'>
                 {categories.map((item) => (
-                    <div className='border md:border-none md:hover:border-black bg-slate-50 hover:bg-slate-100 md:bg-white flex m-1 p-[0.25px] rounded-md overflow-x-auto md:text-sm'>                      
+                    <div key={item.label} className='border md:border-none md:hover:border-black bg-slate-50 hover:bg-slate-100 md:bg-white flex m-1 p-[0.25px] rounded-md overflow-x-auto md:text-sm'>                      
                       <Category 
-                        key={item.label}
+                        
                         label={item.label}
                         icon={item.icon}
                         selected={category === item.label || (category === null && item.label === 'All')}
