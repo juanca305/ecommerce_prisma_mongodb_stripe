@@ -1,6 +1,5 @@
 'use client';
 
-
 import React, { useCallback, useState } from 'react';
 import Avatar from '../Avatar';
 import { AiFillCaretDown } from 'react-icons/ai';
@@ -16,19 +15,19 @@ interface UserMenuProps{
 }
 
 const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
-console.log("UserMenu-currentUser", currentUser);
+//console.log("UserMenu-currentUser", currentUser);
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = useCallback(() => {
         setIsOpen(prev => !prev)
     }, [])
 
-  function setCartProducts(arg0: null) {
-    throw new Error('Function not implemented.');
-  }
+  // function setCartProducts(arg0: null) {
+  //   throw new Error('Function not implemented.');
+  // }
 
-  function setCartTotalQty(arg0: number) {
-    throw new Error('Function not implemented.');
-  }
+  // function setCartTotalQty(arg0: number) {
+  //   throw new Error('Function not implemented.');
+  // }
 
   return (
     <>

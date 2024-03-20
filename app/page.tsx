@@ -1,6 +1,4 @@
 
-
-
 export const revalidate = 0;
 
 import Container from "./components/Container";
