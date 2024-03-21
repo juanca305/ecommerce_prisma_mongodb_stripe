@@ -1,3 +1,4 @@
+export const revalidate = 0;
 export const dynamic = "force-dynamic";
 //import bcrypt from 'bcrypt';
 import prisma from '@/lib/prismadb';
