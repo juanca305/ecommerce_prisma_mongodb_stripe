@@ -6,6 +6,7 @@ import Categories from "./Categories";
 import SearchBar from "./SearchBar";
 import Container from "../Container";
 import Link from "next/link";
+import { Suspense } from "react";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
@@ -49,7 +50,10 @@ const NavBar = async () => {
           </div>
         </Container>
       </div>
-      <Categories/>
+      <Suspense>
+        <Categories/>
+      </Suspense>
+      
     </div>
   );
 };
