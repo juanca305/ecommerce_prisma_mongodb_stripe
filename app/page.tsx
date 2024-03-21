@@ -14,7 +14,7 @@ interface HomeProps{
 
 export default async function Home({searchParams}: HomeProps) {
   const products = await getProducts(searchParams)
-  console.log('Products from searchterm', products);
+  //console.log('Products from searchterm', products);
 
   if(products.length === 0){
     return <div className="mx-4">
