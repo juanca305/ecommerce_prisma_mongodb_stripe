@@ -4,14 +4,13 @@ const nextConfig = {
         domains: ['firebasestorage']
     },
 };
-module.exports = nextConfig;
 
 
-// module.exports = {
-//     images: {
-//       remotePatterns: ['firebasestorage.googleapis.com']
-//     },
-//   }
+module.exports = {
+    images: {
+      remotePatterns: ['firebasestorage.googleapis.com'],
+    },
+  }
 
 
 
