@@ -4,20 +4,22 @@ const nextConfig = {
         domains: ["firebasestorage.googleapis.com", "lh3.googleusercontent.com","m.media-amazon.com"]
     },
 
-    eslint: {
-        ignoreDuringBuilds: true,
-    }
-}
+    // eslint: {
+    //     ignoreDuringBuilds: true,
+    // }
+};
 
-module.exports = {
-    typescript: {
-      // !! WARN !!
-      // Dangerously allow production builds to successfully complete even if
-      // your project has type errors.
-      // !! WARN !!
-      ignoreBuildErrors: true,
-    },
-  }
+module.exports = nextConfig;
+
+// module.exports = {
+//     typescript: {
+//       // !! WARN !!
+//       // Dangerously allow production builds to successfully complete even if
+//       // your project has type errors.
+//       // !! WARN !!
+//       ignoreBuildErrors: true,
+//     },
+//   }
 
 
 module.exports = nextConfig

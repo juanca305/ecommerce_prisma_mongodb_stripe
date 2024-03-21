@@ -1,5 +1,5 @@
 
-export const revalidate = 'force-cache';
+export const revalidate = 0;
 
 import Container from "./components/Container";
 import HomeBanner from "./components/HomeBanner";
