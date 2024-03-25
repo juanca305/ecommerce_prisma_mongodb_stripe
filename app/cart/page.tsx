@@ -11,11 +11,11 @@ const Cart = async() => {
 
   const currentUser = await getCurrentUser()
   return (
-    <div className=' pt-8'>
+    <div className=' pt-8 m-4
+    '>
       <Container>
         <CartClient currentUser={currentUser}/>
       </Container>
-
     </div>
   )
 }

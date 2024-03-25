@@ -5,7 +5,7 @@ import MyCheckoutClient from './MyCheckoutClient'
 
 const Checkout = () => {
   return (
-    <div className=' p-8'>
+    <div className=' p-1 md:p-8'>
         <Container>
             <FormWrap>
                 <MyCheckoutClient />

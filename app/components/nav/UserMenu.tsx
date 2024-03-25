@@ -31,10 +31,12 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
 
   return (
     <>
-        <div className=' relative z-30 flex items-center gap-2 text-sm'>
+        <div className=' relative z-30 flex items-center gap-2 text-xs md:sm'>
             <div className={`${currentUser ? 'block' : 'hidden'}`}>Hello, {currentUser?.name?.split(' ', 1)}</div>
             <div onClick={toggleOpen} className='
-              p-2 border-[1px]
+              p-1
+              md:p-2 
+              border-[1px]
               border-slate-400 
               flex 
               flex-row 
@@ -45,8 +47,7 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
               cursor-pointer
               transition
              text-slate-700
-              '>
-                
+              '>  
                 <Avatar src={currentUser?.image}/>
                 <AiFillCaretDown />
             </div>

@@ -27,7 +27,9 @@ const ItemContent:React.FC<ItemContentProps> = ({ item }) => {
           col-span-2
           justify-self-start
           flex
-          gap-2
+          flex-col
+          md:flex-row
+          gap-3
           md:gap-4
         '>
             <Link href={`/product/${item.id}`}>
@@ -37,12 +39,15 @@ const ItemContent:React.FC<ItemContentProps> = ({ item }) => {
             </Link>
 
             <div className=' flex flex-col justify-between '>
-                <Link href={`/product/${item.id}`}>
-                    {truncateText(item.name)}
-                </Link>
+                <div className='font-semibold mb-2'>
+                    <Link href={`/product/${item.id}`}>
+                      {truncateText(item.name)}
+                    </Link>
+                </div>
+                
                 <div>{item.selectedImg.color}</div>
-                <div className=' w-[70px]'>
-                    <button className=' text-slate-500 underline' onClick={() => {handleRemoveProductFromCart(item)}}>
+                <div className=' w-[70px] mt-2 md:mt-0'>
+                    <button className=' text-red-800 underline' onClick={() => {handleRemoveProductFromCart(item)}}>
                         Remove
                     </button>
                 </div>

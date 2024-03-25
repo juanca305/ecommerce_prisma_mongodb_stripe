@@ -56,11 +56,11 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
                     <Button label='Clear Cart' onClick={() => {handleClearCart()}} small outline/>
                 </div>
                 <div className=' text-sm flex flex-col gap-1 items-start'>
-                        <div className=' flex justify-between w-full text-base font-semibold'>
+                        <div className=' flex justify-between w-full text-sm md:text-base font-semibold'>
                             <span>Subtotal:</span>
-                            <span><span className=' text-green-400 font-normal'>$</span>{formatPrice(cartTotalAmount)}</span>
+                            <span>{formatPrice(cartTotalAmount)}</span>
                         </div>
-                        <p className=' text-slate-500'>Taxes and Shipping calculated at Checkout</p>
+                        <p className=' text-slate-500 mb-2 text-xs md:text-sm'>Taxes and Shipping calculated at Checkout</p>
                         <Button label={currentUser ?'Checkout': 'Login to Checkout'} outline = {currentUser ? false : true} onClick={() => {currentUser ? router.push('/checkout') : router.push('/login') }}/>
                         <Link href={'/'} className='
                             text-slate-500
@@ -70,7 +70,7 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
                             mt-2
                         '>
                         <MdArrowBack />
-                        <span>Continue Shopping</span>
+                        <span className='text-green-800'>Continue Shopping</span>
                     </Link>
                 </div>
             </div>

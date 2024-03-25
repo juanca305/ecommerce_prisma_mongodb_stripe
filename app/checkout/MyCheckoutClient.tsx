@@ -73,8 +73,6 @@ const MyCheckoutClient = () => {
           },
           []);
   
-    
-  
   return (
     <div className=' w-full'>
        {clientSecret && cartProducts && (
@@ -82,7 +80,7 @@ const MyCheckoutClient = () => {
           <CheckoutForm clientSecret={clientSecret} handleSetPaymentSuccess={handleSetPaymentSuccess}/>
         </Elements>
       )}
-      {loading && <div className=' text-center'>Loading Checkout...</div>};
+      {loading && <div className=' text-center'>Loading Checkout...</div>}
       {error && <div className=' text-center text-rose-500'>Something went wrong...</div>}
       {paymentSuccess && 
         <div className=' flex items-center flex-col gap-4 '>

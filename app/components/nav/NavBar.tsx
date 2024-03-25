@@ -38,9 +38,9 @@ const NavBar = async () => {
           >
             <Link
               href="/"
-              className={`${redressed.className} font-bold text-2xl`}
+              className={`${redressed.className} font-bold text-2xl md:mx-4`}
             >
-              E-Shop
+              JuancaShop
             </Link>
             <div className="hidden md:block"><SearchBar/></div>
             <div className="flex items-center gap-8 md:gap-12">

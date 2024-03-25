@@ -10,7 +10,7 @@ const HomeBanner = () => {
                 <p className=' text-lg md:text-xl text-white mb-2'>Enjoy discounts on selected items</p>
                 <p className=' text-2x1 md:text-5xl text-yellow-400 font-bold'>GET 50% OFF</p>
             </div>
-            <div className=' w-1/3 relative aspect-video'>
+            <div className='w-36 md:w-1/3 relative aspect-video'>
                 <Image src='/banner-image.png' fill alt='banner-image' className='object-contain'/>
             </div>
         </div>
