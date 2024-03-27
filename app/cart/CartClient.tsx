@@ -52,12 +52,13 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
                 })}
             </div>
             <div className=' border-t-[1.5px] border-slate-200 py-4 flex justify-between gap-4'>
-                <div className=' w-[90px]'>
+                <div className=' w-[100px]'>
                     <Button label='Clear Cart' onClick={() => {handleClearCart()}} small outline/>
                 </div>
+                
                 <div className=' text-sm flex flex-col gap-1 items-start'>
-                        <div className=' flex justify-between w-full text-sm md:text-base font-semibold'>
-                            <span>Subtotal:</span>
+                        <div className=' flex justify-between w-full md:text-base font-semibold'>
+                            <span>Subtotal :</span>
                             <span>{formatPrice(cartTotalAmount)}</span>
                         </div>
                         <p className=' text-slate-500 mb-2 text-xs md:text-sm'>Taxes and Shipping calculated at Checkout</p>
@@ -69,9 +70,9 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
                             gap-1
                             mt-2
                         '>
-                        <MdArrowBack />
-                        <span className='text-green-800'>Continue Shopping</span>
-                    </Link>
+                            <MdArrowBack />
+                            <span className='text-green-800 text-xs'>Continue Shopping</span>
+                        </Link>
                 </div>
             </div>
         </div> 

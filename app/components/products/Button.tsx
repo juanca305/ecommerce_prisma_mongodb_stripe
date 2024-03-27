@@ -37,8 +37,9 @@ const Button:React.FC<ButtonProps> = ({
         items-center
         justify-center
         gap-2
-        text-xs
-        md:text-sm
+        
+        leading-4
+        text-sm
        
         ${outline ? "bg-white" : "bg-slate-700"}
         ${outline ? "text-slate-700" : "text-white"}

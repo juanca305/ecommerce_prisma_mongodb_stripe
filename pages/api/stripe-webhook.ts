@@ -41,7 +41,7 @@ export default async function handler(
                     //Update the order adding status & address
                     await prisma?.order.update({
                         where: {paymentIntentId: charge.payment_intent},
-                        data: {status: 'complete', address: charge.shipping?.address}
+                        data: {status:'complete', address: charge.shipping?.address}
                     })
                 }
                 break;

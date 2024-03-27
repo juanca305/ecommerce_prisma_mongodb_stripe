@@ -29,7 +29,7 @@ const ItemContent:React.FC<ItemContentProps> = ({ item }) => {
           flex
           flex-col
           md:flex-row
-          gap-3
+          gap-1
           md:gap-4
         '>
             <Link href={`/product/${item.id}`}>
@@ -46,6 +46,7 @@ const ItemContent:React.FC<ItemContentProps> = ({ item }) => {
                 </div>
                 
                 <div>{item.selectedImg.color}</div>
+               
                 <div className=' w-[70px] mt-2 md:mt-0'>
                     <button className=' text-red-800 underline' onClick={() => {handleRemoveProductFromCart(item)}}>
                         Remove
@@ -55,7 +56,7 @@ const ItemContent:React.FC<ItemContentProps> = ({ item }) => {
 
         </div>
         <div className=' justify-self-center'>{formatPrice(item.price)}</div>
-        <div className=' justify-self-center'>
+        <div className='justify-self-center '>
             <SetQuantity 
                 carCounter = {true}
                 cartProduct={item}
